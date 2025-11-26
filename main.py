@@ -1,7 +1,7 @@
 import gymnasium as gym
 
 # Create an environment
-env = gym.make("CartPole-v1")
+env = gym.make("CartPole-v1", render_mode="human")
 
 # Reset environment to start a new episode
 observation, info = env.reset()
@@ -14,6 +14,9 @@ episode_over = False
 total_reward = 0
 
 while not episode_over:
+    # Interface mit dem Cart Pole
+    env.render()
+
     # Choose an action: 0 = push the cart to left, 1 = push the cart to right
     action = env.action_space.sample() # Random action for now
 
